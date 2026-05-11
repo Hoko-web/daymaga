@@ -73,6 +73,15 @@
 - ヘッダー側参照: `header.php`（`p-header__cta-btn--primary` / `--secondary`）
 - 中間CTA側参照: `template-parts/cta.php`
 
+### Q&A セクションのアコーディオン化
+
+仕様書では個別記事ページの Q&A セクションが質問と回答を常時両方表示する構造だったが、項目数が増えた際の縦長化と可読性低下を想定し、ネイティブの `<details>` / `<summary>` 要素によるアコーディオン展開へ変更。クリックで質問単位に開閉でき、JS を介さずキーボード操作にも対応する形にした。
+
+なお、マークアップは投稿ページ（WordPress 管理画面の記事編集画面）に **HTML を直接ハードコードで記述** している。専用ブロック化やショートコード化は行わず、`<details class="p-single__faq-item">` / `<summary class="p-single__faq-question">` の構造を記事本文にそのまま貼り付ける運用とした。
+
+- マークアップ: 投稿ページの本文に直書き（カスタム HTML ブロック）
+- スタイル: `scss/object/project/_single.scss`（`.p-single__faq-*`、`[open]` 状態の差分制御）
+
 ---
 
 ## ディレクトリ構成

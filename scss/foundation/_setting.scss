@@ -1,0 +1,59 @@
+@use "sass:map";
+
+// =====================================
+// フォント
+// =====================================
+$font-base: "Noto Sans JP", sans-serif;
+$font-display: "Zen Maru Gothic", sans-serif;
+
+// =====================================
+// カラー
+// =====================================
+$color-bg-base: #e6edf3;
+$color-bg-sub: #629de2;
+
+$color-text-base: #343436;
+$color-text-sub: #ffffff;
+
+$color-accent: #135097;
+$color-cta: #2a84bf;
+
+$color-bg-tag: #daeff8;
+$color-border-light: #dde1f0;
+$color-text-muted: #676e87;
+
+// =====================================
+// カテゴリカラー
+// =====================================
+$color-cat-all: #629de2;
+$color-cat-latest: #135097;
+$color-cat-tips: #42a0ad;
+$color-cat-interview: #bb7ee1;
+$color-cat-news: #816dfa;
+
+// =====================================
+// ブレイクポイント
+// =====================================
+$breakpoints: (
+  tb: 750px,
+  pc: 950px,
+  pc-l: 1300px,
+);
+
+// =====================================
+// Mixin
+// =====================================
+@mixin mq($breakpoint) {
+  @media (min-width: map.get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin hover-opacity($value: 0.7) {
+  @include mq(pc) {
+    transition: opacity 0.3s;
+    &:hover {
+      opacity: $value;
+    }
+  }
+}

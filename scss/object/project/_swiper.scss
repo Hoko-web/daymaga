@@ -1,0 +1,361 @@
+@use "../../foundation/setting" as *;
+
+// =====================================
+// カルーセル
+// =====================================
+.p-pickup {
+  padding-top: 202px;
+  overflow: hidden;
+
+  .c-card {
+    @include mq(pc) {
+      padding: 28px;
+      border-radius: 20px;
+    }
+  }
+}
+
+.p-pickup__swiper {
+  position: relative;
+  overflow: visible;
+  --swiper-navigation-sides-offset: 16px;
+
+  .swiper-slide-active {
+    .c-card {
+      transform: translateY(-12px);
+
+      @include mq(tb) {
+        transform: translateY(-40px);
+      }
+    }
+  }
+
+  .swiper-slide {
+    width: 75%;
+    max-width: 420px;
+    min-width: 302px;
+    height: auto;
+
+    @include mq(pc) {
+      max-width: 596px;
+    }
+  }
+}
+.p-pickup__prev,
+.p-pickup__next {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  background-color: $color-accent;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px 15px;
+  cursor: pointer;
+
+  @include mq(pc) {
+    width: 46px;
+    height: 46px;
+  }
+
+  @include hover-opacity(0.7);
+}
+
+.p-pickup__prev {
+  background-image: url("../img/arrow-prev.png");
+  left: clamp(10px, calc(30vw - 130px), 150px);
+
+  @include mq(pc) {
+    left: calc(50% - 360px);
+  }
+}
+
+.p-pickup__next {
+  background-image: url("../img/arrow-next.png");
+  right: clamp(10px, calc(30vw - 130px), 150px);
+
+  @include mq(pc) {
+    right: calc(50% - 360px);
+  }
+}
+
+// =====================================
+// よく読まれている記事
+// =====================================
+.p-popular {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  overflow: hidden;
+  background: url(../img/popular-post-bg.jpg) no-repeat center / cover;
+
+  @include mq(tb) {
+    padding-top: 64px;
+    padding-bottom: 54px;
+  }
+}
+
+.p-popular__inner {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 32px;
+
+  @include mq(tb) {
+    max-width: 750px;
+  }
+
+  @include mq(pc) {
+    max-width: 1080px;
+  }
+}
+
+.p-popular__head {
+  display: flex;
+  flex-direction: column;
+
+  @include mq(tb) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.p-popular__nav {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  justify-content: flex-end;
+
+  @include mq(tb) {
+    margin-top: 0;
+  }
+}
+
+.p-popular__swiper {
+  margin-top: 24px;
+  position: relative;
+  overflow: visible;
+
+  @include mq(tb) {
+    margin-top: 36px;
+  }
+
+  .swiper-slide {
+    width: 75%;
+    max-width: 420px;
+    min-width: 302px;
+    height: auto;
+
+    @include mq(tb) {
+      max-width: 302px;
+    }
+  }
+}
+
+.p-popular__scrollbar {
+  background-color: $color-border-light;
+  height: 8px;
+  margin-top: 24px;
+  border-radius: 4px;
+
+  @include mq(tb) {
+    margin-top: 36px;
+  }
+
+  .swiper-scrollbar-drag {
+    background-color: $color-accent;
+    border-radius: 4px;
+  }
+}
+
+.p-popular__prev,
+.p-popular__next {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid #fff;
+  cursor: pointer;
+  position: relative;
+  transition:
+    opacity 0.3s,
+    background-color 0.3s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    margin-right: -2px;
+    width: 48px;
+    height: 48px;
+    background-color: #fff;
+    transition: background-color 0.3s;
+  }
+
+  @include mq(pc) {
+    &:hover {
+      background-color: #fff;
+
+      &::before {
+        background-color: $color-bg-sub;
+      }
+    }
+  }
+
+  &.is-disabled {
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+.p-popular__prev::before {
+  -webkit-mask: url("../img/popular-prev.svg") no-repeat center / contain;
+  mask: url("../img/popular-prev.svg") no-repeat center / contain;
+}
+
+.p-popular__next::before {
+  -webkit-mask: url("../img/popular-next.svg") no-repeat center / contain;
+  mask: url("../img/popular-next.svg") no-repeat center / contain;
+}
+
+// =====================================
+// 関連記事
+// =====================================
+.p-related {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  overflow: hidden;
+
+  @include mq(tb) {
+    padding-top: 128px;
+    padding-bottom: 64px;
+  }
+}
+
+.p-related__inner {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 32px;
+
+  @include mq(tb) {
+    max-width: 750px;
+  }
+
+  @include mq(pc) {
+    max-width: 1080px;
+  }
+}
+
+.p-related__head {
+  display: flex;
+  flex-direction: column;
+
+  @include mq(tb) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.p-related__nav {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  justify-content: flex-end;
+
+  @include mq(tb) {
+    margin-top: 0;
+  }
+}
+
+.p-related__swiper {
+  margin-top: 24px;
+  position: relative;
+  overflow: visible;
+
+  @include mq(tb) {
+    margin-top: 36px;
+  }
+
+  .swiper-slide {
+    width: 75%;
+    max-width: 420px;
+    min-width: 302px;
+    height: auto;
+
+    @include mq(tb) {
+      max-width: 302px;
+    }
+  }
+}
+
+.p-related__prev,
+.p-related__next {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid $color-accent;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 48px;
+    height: 48px;
+    background-color: $color-accent;
+    transition: background-color 0.3s;
+  }
+
+  @include mq(pc) {
+    &:hover {
+      background-color: $color-accent;
+
+      &::before {
+        background-color: #fff;
+      }
+    }
+  }
+
+  &.is-disabled {
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+.p-related__prev::before {
+  -webkit-mask: url("../img/popular-prev.svg") no-repeat center / contain;
+  mask: url("../img/popular-prev.svg") no-repeat center / contain;
+}
+
+.p-related__next::before {
+  -webkit-mask: url("../img/popular-next.svg") no-repeat center / contain;
+  mask: url("../img/popular-next.svg") no-repeat center / contain;
+}
+
+.p-related__scrollbar {
+  background-color: $color-border-light;
+  height: 8px;
+  margin-top: 24px;
+  border-radius: 4px;
+
+  @include mq(tb) {
+    margin-top: 36px;
+  }
+
+  .swiper-scrollbar-drag {
+    background-color: $color-accent;
+    border-radius: 4px;
+  }
+}

@@ -1,0 +1,243 @@
+@use "../../foundation/setting" as *;
+
+.p-cta {
+  padding: 69px 0 49px;
+  background: url(../img/cta-bg.jpg) no-repeat center / cover;
+
+  @include mq(tb) {
+    padding: 103px 0 74px;
+  }
+}
+
+.p-cta__inner {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  @include mq(tb) {
+    max-width: 650px;
+  }
+
+  @include mq(pc) {
+    max-width: 870px;
+  }
+}
+
+.p-cta__group {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+
+  @include mq(tb) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.p-cta__btn {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
+
+  @include mq(pc) {
+    &:hover {
+      transform: translateY(-8px);
+      opacity: 0.8;
+    }
+  }
+}
+
+.p-cta__btn--primary {
+  .p-cta__btn-label {
+    color: $color-text-sub;
+    border: 1px solid $color-text-sub;
+    background-color: $color-cta;
+  }
+
+  .p-cta__btn-main {
+    color: $color-cta;
+    border: 2px solid $color-text-sub;
+    background-color: $color-text-sub;
+  }
+}
+
+.p-cta__btn--secondary {
+  .p-cta__btn-label {
+    color: $color-cta;
+    border: 1px solid $color-text-sub;
+    background-color: #fff;
+  }
+
+  .p-cta__btn-main {
+    color: $color-text-sub;
+    border: 2px solid $color-text-sub;
+    background-color: $color-cta;
+  }
+}
+
+.p-cta__btn-label {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: fit-content;
+  font-family: $font-display;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  padding: 6px 16px;
+  border-radius: 8px 8px 8px 0;
+  z-index: 2;
+
+  @include mq(pc) {
+    top: -30px;
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+}
+
+.p-cta__btn-main {
+  width: fit-content;
+  font-family: $font-display;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.36px;
+  padding: 12px 42px 10px 20px;
+  border-radius: 0 8px 8px 8px;
+  position: relative;
+
+  @include mq(pc) {
+    font-size: 24px;
+    letter-spacing: 0.48px;
+    padding: 16px 66px 16px 32px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 54%;
+    right: 16px;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    background-color: currentColor;
+    -webkit-mask: url("../img/cta-arrow.svg") no-repeat center / contain;
+    mask: url("../img/cta-arrow.svg") no-repeat center / contain;
+
+    @include mq(pc) {
+      right: 32px;
+      width: 28px;
+      height: 28px;
+    }
+  }
+}
+
+// =====================================
+// フッター
+// =====================================
+.p-footer {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  background-color: #241919;
+  color: $color-text-sub;
+
+  @include mq(tb) {
+    padding-top: 48px;
+    padding-bottom: 28px;
+  }
+}
+
+.p-footer__inner {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 17px;
+
+  @include mq(tb) {
+    max-width: 650px;
+  }
+
+  @include mq(pc) {
+    max-width: 1040px;
+  }
+}
+
+.p-footer__container {
+  @include mq(pc) {
+    display: flex;
+    justify-content: center;
+    gap: clamp(220px, 20vw, 360px);
+  }
+}
+
+.p-footer__logo {
+  img {
+    width: 234px;
+    height: 48px;
+    display: block;
+    margin: 0 auto;
+
+    @include mq(pc) {
+      width: 334px;
+      height: 63px;
+    }
+  }
+}
+
+.p-footer__nav {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+
+  @include mq(pc) {
+    margin-top: 0;
+    gap: 64px;
+  }
+}
+
+.p-footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: fit-content;
+}
+
+.p-footer__item {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.8px;
+
+  a {
+    display: block;
+    padding: 12px 0;
+    @include hover-opacity(0.7);
+  }
+}
+
+.p-footer__copy {
+  margin-top: 36px;
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.p-footer__caution {
+  margin-top: 40px;
+  display: block;
+
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.2;
+
+  @include mq(pc) {
+    text-align: center;
+  }
+}

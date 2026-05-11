@@ -1,0 +1,73 @@
+@use "../../foundation/setting" as *;
+
+// =====================================
+// 404ページ
+// =====================================
+.p-404 {
+  padding-top: 190px;
+  padding-bottom: 80px;
+
+  @include mq(tb) {
+    padding-top: 240px;
+    padding-bottom: 120px;
+  }
+}
+
+.p-404__inner {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+
+  @include mq(tb) {
+    max-width: 750px;
+  }
+}
+
+.p-404__code {
+  font-family: $font-display;
+  font-size: 100px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  color: $color-cat-all;
+
+  @include mq(tb) {
+    font-size: 180px;
+  }
+}
+
+.p-404__title {
+  font-family: $font-display;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: $color-text-base;
+  margin-top: 16px;
+
+  @include mq(tb) {
+    font-size: 32px;
+    margin-top: 24px;
+  }
+}
+
+.p-404__text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: $color-text-base;
+  margin-top: 16px;
+
+  @include mq(tb) {
+    font-size: 16px;
+    margin-top: 24px;
+  }
+}
+
+.p-404__button {
+  margin: 32px auto 0;
+
+  @include mq(tb) {
+    margin: 48px auto 0;
+  }
+}

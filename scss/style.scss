@@ -1,0 +1,21 @@
+// Foundation
+// =====================================
+@use "foundation/reset"; // リセットCSS（destyle.css）
+@use "foundation/setting" as *;
+@use "foundation/base";
+// =====================================
+// Object - component
+// =====================================
+@use "object/component/heading";
+@use "object/component/card";
+@use "object/component/button";
+@use "object/component/prose";
+// =====================================
+// Object - Project
+// =====================================
+@use "object/project/header";
+@use "object/project/swiper";
+@use "object/project/archive";
+@use "object/project/single";
+@use "object/project/footer";
+@use "object/project/notfound";

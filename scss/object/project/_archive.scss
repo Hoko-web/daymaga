@@ -1,0 +1,465 @@
+@use "../../foundation/setting" as *;
+
+// =====================================
+// 新着記事
+// =====================================
+.p-latest {
+  padding-top: 90px;
+  padding-bottom: 40px;
+}
+
+.p-latest__inner {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 44px;
+
+  @include mq(tb) {
+    max-width: 750px;
+  }
+
+  @include mq(pc) {
+    max-width: 1080px;
+  }
+}
+
+.p-latest__list {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include mq(tb) {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  @include mq(pc) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+}
+
+// =====================================
+// すべての記事
+// =====================================
+.p-archive {
+  padding-top: 48px;
+
+  @include mq(tb) {
+    padding-top: 64px;
+  }
+}
+
+.p-archive-page {
+  .p-archive {
+    padding-top: 190px;
+
+    @include mq(tb) {
+      padding-top: 204px;
+    }
+  }
+}
+
+.p-archive__inner {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 18px;
+
+  @include mq(tb) {
+    max-width: 750px;
+  }
+
+  @include mq(pc) {
+    max-width: 1034px;
+  }
+}
+
+.p-archive__head {
+  .c-heading {
+    @include mq(tb) {
+      margin-bottom: 50px;
+      justify-content: flex-start;
+    }
+  }
+}
+
+.p-archive__sort {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+  margin-left: auto;
+  width: fit-content;
+  position: relative;
+  z-index: 10;
+
+  > *:not(:last-child) {
+    border-right: 1px solid $color-text-muted;
+    padding-right: 12px;
+  }
+}
+
+.p-archive__sort-item {
+  font-size: 14px;
+  line-height: 1.3;
+  color: $color-text-muted;
+
+  &.is-active a {
+    color: $color-accent;
+  }
+}
+
+.p-archive__body {
+  position: relative;
+  margin: 8px 31px 0 0;
+  padding: 12px;
+  border-radius: 16px 0 16px 16px;
+  transition: background-color 0.3s;
+
+  &--all {
+    background-color: $color-cat-all;
+  }
+  &--latest {
+    background-color: $color-cat-latest;
+  }
+  &--tips {
+    background-color: $color-cat-tips;
+  }
+  &--interview {
+    background-color: $color-cat-interview;
+  }
+  &--news {
+    background-color: $color-cat-news;
+  }
+
+  @include mq(tb) {
+    padding: 26px;
+    margin: 8px 0 0 0;
+    border-radius: 0 16px 16px 16px;
+  }
+}
+
+.p-archive__tab-list {
+  position: absolute;
+  top: 0px;
+  right: -30px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @include mq(tb) {
+    flex-direction: row;
+    top: -35px;
+    left: 0;
+  }
+}
+
+.p-archive__tab {
+  background-color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid currentColor;
+  border-left: none;
+  border-radius: 0 12px 12px 0;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+
+  @include mq(tb) {
+    font-size: 16px;
+    line-height: 1.5;
+    border-radius: 12px 12px 0 0;
+    border-bottom: none;
+  }
+
+  a {
+    display: block;
+    writing-mode: vertical-rl;
+    text-orientation: upright; // 英字（TIPS等）も縦に積んで日本語と統一
+    padding: 12px 10px 12px 0;
+    color: inherit;
+
+    @include mq(tb) {
+      writing-mode: horizontal-tb;
+      padding: 6px 20px 4px 20px;
+    }
+  }
+
+  &--all {
+    color: $color-cat-all;
+  }
+  &--latest {
+    color: $color-cat-latest;
+  }
+  &--tips {
+    color: $color-cat-tips;
+  }
+  &--interview {
+    color: $color-cat-interview;
+  }
+  &--news {
+    color: $color-cat-news;
+  }
+
+  &.is-active {
+    background-color: currentColor;
+
+    a {
+      color: #fff;
+    }
+  }
+
+  @include mq(pc) {
+    &:hover {
+      background-color: currentColor;
+
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.p-archive__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @include mq(tb) {
+    display: grid;
+    grid-template-columns: repeat(2, 302px);
+    justify-content: center;
+    gap: 28px;
+  }
+
+  @include mq(pc) {
+    grid-template-columns: repeat(3, minmax(0, 302px));
+    gap: 3vw;
+  }
+}
+
+.p-archive__empty {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 210px 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: $color-text-base;
+
+  @include mq(tb) {
+    grid-column: 1 / -1;
+    font-size: 20px;
+    padding: 16px 0;
+  }
+}
+
+.c-more-archive {
+  margin: 20px auto 0;
+
+  @include mq(tb) {
+    margin: 32px 0 0 auto;
+  }
+}
+
+// =====================================
+// キーワードで絞り込む
+// =====================================
+.p-tag-filter {
+  padding-top: 64px;
+  padding-bottom: 48px;
+
+  @include mq(tb) {
+    padding-top: 48px;
+    padding-bottom: 64px;
+  }
+}
+
+.p-tag-filter__inner {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 25px;
+
+  @include mq(tb) {
+    max-width: 650px;
+  }
+
+  @include mq(pc) {
+    max-width: 816px;
+  }
+}
+
+.p-tag-filter__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: $color-text-sub;
+  background-color: $color-bg-sub;
+  border-radius: 16px 16px 0 0;
+  padding: 10px 28px 6px 16px;
+  width: fit-content;
+
+  @include mq(tb) {
+    gap: 12px;
+    padding: 12px 43px 8px 24px;
+  }
+}
+
+.p-tag-filter__icon {
+  width: 18px;
+  height: 18px;
+}
+
+.p-tag-filter__title {
+  font-family: $font-display;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 2.25px;
+
+  @include mq(tb) {
+    font-size: 18px;
+    letter-spacing: 2.7px;
+  }
+}
+
+.p-tag-filter__body {
+  background-color: #fff;
+  border: 1px solid $color-bg-sub;
+  border-radius: 0 20px 20px 20px;
+  display: flex;
+  padding: 16px 12px 24px 12px;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @include mq(tb) {
+    padding: 24px 40px 36px;
+  }
+
+  @include mq(pc) {
+    padding: 24px 88px 36px;
+  }
+}
+
+.p-tag-filter__group {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom: 1px solid $color-border-light;
+
+  @include mq(tb) {
+    padding: 12px;
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  @include mq(pc) {
+    width: 640px;
+    margin: 0 auto;
+  }
+}
+
+.p-tag-filter__group-title {
+  color: $color-bg-sub;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 1.3px;
+
+  @include mq(tb) {
+    font-size: 14px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}
+
+.p-tag-filter__tag-list {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  @include mq(tb) {
+    gap: 16px;
+  }
+}
+
+// =====================================
+// タグページ専用上書き
+// =====================================
+.p-tag-page {
+  .p-archive {
+    padding-top: 229px;
+
+    @include mq(tb) {
+      padding-top: 266px;
+    }
+  }
+
+  .p-archive__body {
+    position: relative;
+    border-radius: 0 16px 16px 16px;
+    margin: 0 auto;
+    background-color: #fff;
+
+    @include mq(tb) {
+      padding: 26px;
+    }
+  }
+
+  .p-archive__tab-list {
+    position: absolute;
+    flex-direction: row;
+    top: -34px;
+    left: 0;
+
+    @include mq(tb) {
+      top: -62px;
+    }
+  }
+
+  .p-archive__tab {
+    font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: 2.25px;
+    border-radius: 12px 12px 0 0;
+    border: none;
+
+    @include mq(tb) {
+      font-size: 28px;
+      letter-spacing: 4.2px;
+    }
+  }
+
+  .p-archive__tab--all {
+    a,
+    span,
+    h1 {
+      font-family: $font-display;
+      align-items: center;
+      color: $color-text-sub;
+      background-color: $color-bg-sub;
+      border-radius: 16px 16px 0 0;
+      width: fit-content;
+      writing-mode: horizontal-tb;
+      padding: 6px 20px;
+
+      @include mq(tb) {
+        padding: 12px 43px 8px 24px;
+      }
+    }
+  }
+
+  .c-pagination {
+    margin-top: 56px;
+    margin-bottom: 48px;
+  }
+}

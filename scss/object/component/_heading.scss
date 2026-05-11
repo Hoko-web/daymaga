@@ -1,0 +1,40 @@
+@use "../../foundation/setting" as *;
+
+.c-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  &--light {
+    .c-heading__title {
+      color: $color-text-sub;
+      letter-spacing: 2.4px;
+    }
+  }
+
+  @include mq(pc) {
+    justify-content: center;
+  }
+}
+
+.c-heading__logo {
+  width: 42px;
+
+  @include mq(tb) {
+    width: 72px;
+  }
+}
+
+.c-heading__title {
+  font-family: $font-display;
+  color: $color-accent;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 4.8px;
+
+  @include mq(tb) {
+    font-size: 32px;
+    letter-spacing: 6.4px;
+  }
+}

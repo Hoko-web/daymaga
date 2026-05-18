@@ -1037,7 +1037,7 @@ ul.page-numbers {
 .is-scrolled .p-header__tools {
   flex-direction: row-reverse;
   gap: 48px;
-  padding: 20px 32px 20px 40px;
+  padding: 20px 24px 20px 24px;
 }
 .is-scrolled .p-header {
   background-color: #e6edf3;

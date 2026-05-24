@@ -11,6 +11,23 @@
       hamburger.classList.toggle("is-open");
       drawer.classList.toggle("is-open");
     });
+
+    const drawerSearch = drawer.querySelector(".p-header__search--drawer");
+    if (drawerSearch) {
+      drawerSearch.addEventListener("click", () => {
+        document.body.classList.remove("is-drawer-open");
+        hamburger.classList.remove("is-open");
+        drawer.classList.remove("is-open");
+      });
+    }
+
+    drawer.addEventListener("click", (e) => {
+      if (e.target === drawer) {
+        document.body.classList.remove("is-drawer-open");
+        hamburger.classList.remove("is-open");
+        drawer.classList.remove("is-open");
+      }
+    });
   }
 
   // =====================================

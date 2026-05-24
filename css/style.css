@@ -385,6 +385,9 @@ body {
   color: #343436;
   background-color: #e6edf3;
 }
+body.is-drawer-open {
+  overflow: hidden;
+}
 
 img {
   max-width: 100%;
@@ -1279,6 +1282,7 @@ body.is-drawer-open .p-header__search--sp {
   margin-top: 24px;
   position: relative;
   overflow: visible;
+  clip-path: inset(-40px -100vw -40px -30px);
 }
 @media (min-width: 750px) {
   .p-popular__swiper {
@@ -1420,6 +1424,7 @@ body.is-drawer-open .p-header__search--sp {
   margin-top: 24px;
   position: relative;
   overflow: visible;
+  clip-path: inset(-40px -100vw -40px -30px);
 }
 @media (min-width: 750px) {
   .p-related__swiper {
@@ -2322,7 +2327,7 @@ body.is-drawer-open .p-header__search--sp {
 }
 @media (min-width: 950px) {
   .p-cta__btn:hover {
-    transform: translateY(-8px);
+    transform: translateY(8px);
     opacity: 0.8;
   }
 }

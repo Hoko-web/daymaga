@@ -138,6 +138,7 @@
   margin-top: 24px;
   position: relative;
   overflow: visible;
+  clip-path: inset(-40px -100vw -40px -30px);
 
   @include mq(tb) {
     margin-top: 36px;
@@ -278,6 +279,7 @@
   margin-top: 24px;
   position: relative;
   overflow: visible;
+  clip-path: inset(-40px -100vw -40px -30px);
 
   @include mq(tb) {
     margin-top: 36px;
